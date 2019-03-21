@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<InstrumentationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Instrumentation>
+		<Regions>
+		      <RegionRoot Guid="{efa7a927-bae3-48f6-92e1-000000000001}" Name="[Root]" FriendlyName="[Root]">
+				<Region Guid="{d8d639a0-cf4c-45fb-976a-000111000100}" Name="Uno-Activity-Touch" FriendlyName="Activity Touch">
+					<Start>
+						<Event Provider="{a28e3fd4-70f8-5b31-2bea-b35f04ac8c5e}" Id="21" Version="0" />
+					</Start>
+					<Stop>
+						<Event Provider="{a28e3fd4-70f8-5b31-2bea-b35f04ac8c5e}" Id="22" Version="0" />
+					</Stop>
+				</Region>
+				<Region Guid="{d8d639a0-cf4c-45fb-976a-000111000101}" Name="Uno-Image" FriendlyName="Image SetSource">
+					<Start>
+						<Event Provider="{58716ac8-ec4c-5f57-94ea-0e58101dc058}" Id="26" Version="0" />
+					</Start>
+					<Stop>
+						<Event Provider="{58716ac8-ec4c-5f57-94ea-0e58101dc058}" Id="29" Version="0" />
+					</Stop>
+				</Region>
+				<Region Guid="{d8d639a0-cf4c-45fb-975a-000111000102}" Name="Uno-Layouter" FriendlyName="Layouter">
+					<Region Guid="{d8d639a0-cf4c-45fb-975a-000111000103}" Name="Uno-Layouter-Measure" FriendlyName="Measure">
+						<Start>
+							<Event Provider="{dd7bbf84-8fdc-5ba1-d06c-e4882350063b}" Id="22" Version="0" />
+						</Start>
+						<Stop>
+							<Event Provider="{dd7bbf84-8fdc-5ba1-d06c-e4882350063b}" Id="23" Version="0" />
+						</Stop>
+						<Match>
+						      <Event TID="true" AID="false">
+							 <Payload FieldName="Field1" TargetFieldName="Field1" />
+						      </Event>
+						</Match>
+						<Naming>
+							<PayloadBased NameField="Field0" />
+						</Naming>
+					</Region>
+				</Region>
+				<Region Guid="{d8d639a0-cf4c-45fb-976a-000111000102}" Name="Uno-DependencyObject" FriendlyName="DependencyObject">
+					<Region Guid="{d8d639a0-cf4c-45fb-976a-000111000103}" Name="Uno-DependencyObject-SetValue" FriendlyName="SetValue">
+						<Start>
+							<Event Provider="{61cee42e-46c9-58fa-64c5-194ea34922fb}" Id="13" Version="0" />
+						</Start>
+						<Stop>
+							<Event Provider="{61cee42e-46c9-58fa-64c5-194ea34922fb}" Id="15" Version="0" />
+						</Stop>
+						<Naming>
+							<PayloadBased NameField="Field2" InstanceEndpoint="Start"/>
+						</Naming>
+					</Region>
+				</Region>
+				<Region Guid="{d8d639a0-cf4c-45fb-976b-000111000102}" Name="Uno-Container" FriendlyName="Container">
+					<Region Guid="{d8d639a0-cf4c-45fb-976b-000111000103}" Name="Uno-Container" FriendlyName="CreateInstance">
+						<Start>
+							<Event Provider="{26e3b924-a3c4-5417-e7a7-4351eb2b02b4}" Id="3" Version="0" />
+						</Start>
+						<Stop>
+							<Event Provider="{26e3b924-a3c4-5417-e7a7-4351eb2b02b4}" Id="4" Version="0" />
+						</Stop>
+						<Naming>
+							<PayloadBased NameField="Field0" InstanceEndpoint="Start"/>
+						</Naming>
+					</Region>
+				</Region>
+			</RegionRoot>
+		</Regions>
+	</Instrumentation>
+</InstrumentationManifest>

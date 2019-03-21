@@ -1,0 +1,28 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
+	<PropertyGroup>
+		<TargetFrameworks>xamarinios10;MonoAndroid80;uap10.0.17763;net461;netstandard2.0</TargetFrameworks>
+		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<NoWarn>$(NoWarn);1998</NoWarn>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Uno.Diagnostics.Eventing\Uno.Diagnostics.Eventing.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Uno.MonoAnalyzers" />
+	</ItemGroup>
+
+	<Choose>
+		<When Condition="'$(TargetFramework)'=='netstandard2.0'">
+			<ItemGroup>
+				<PackageReference Include="Uno.System.Reactive" />
+			</ItemGroup>
+		</When>
+		<Otherwise>
+			<ItemGroup>
+				<PackageReference Include="System.Reactive" />
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+</Project>

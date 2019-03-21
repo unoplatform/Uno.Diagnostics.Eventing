@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+	<PropertyGroup>
+		<TargetFramework>net47</TargetFramework>
+		<RootNamespace>Uno.ETLTranslator</RootNamespace>
+		<AssemblyName>Uno.ETLTranslator</AssemblyName>
+		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<NoWarn>$(NoWarn);1998</NoWarn>
+		<Description>The Uno Diagnostics for Eventing library.</Description>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventRegister">
+			<Version>1.1.28</Version>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventSource">
+			<Version>1.1.28</Version>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventSource.Redist">
+			<Version>2.0.1</Version>
+		</PackageReference>
+		<PackageReference Include="Uno.Core">
+			<Version>1.27.0-dev.68</Version>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Include="..\Uno.Diagnostics.Eventing.Providers\Manifest.cs">
+			<Link>Manifest.cs</Link>
+		</Compile>
+		<Compile Include="..\Uno.Diagnostics.Eventing.Providers\ManifestEvent.cs">
+			<Link>ManifestEvent.cs</Link>
+		</Compile>
+		<Compile Include="..\Uno.Diagnostics.Eventing.Providers\ManifestProvider.cs">
+			<Link>ManifestProvider.cs</Link>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="App.config" />
+		<None Include="Content\umbrella.ui.wpaProfile" />
+		<None Include="_EventRegisterUsersGuide.docx" />
+		<None Include="_EventSourceUsersGuide.docx" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="Content\umbrella.ui.regions.xml" />
+	</ItemGroup>
+</Project>
