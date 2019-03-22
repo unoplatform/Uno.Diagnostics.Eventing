@@ -1,4 +1,3 @@
-#if XAMARIN || TOOLS_MANIFEST_GENERATOR
 using System;
 using System.IO;
 using System.Linq;
@@ -35,4 +34,3 @@ namespace Uno.Services.Diagnostics.Eventing
 
 	}
 }
-#endif

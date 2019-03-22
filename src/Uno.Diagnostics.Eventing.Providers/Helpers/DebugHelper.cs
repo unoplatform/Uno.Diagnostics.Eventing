@@ -16,7 +16,7 @@ namespace Uno.Diagnostics.Eventing.Providers.Helpers
 		{
 #if !METRO
 
-#if XAMARIN
+#if __IOS__ || __MACOS || __ANDROID__ || NETSTANDARD2_0
 			// Bypass the conditional attribute
 			// Xamarin uses Console.WriteLine because Debug.WriteLine writes each entry twice
 			// in VS's output window, and use particularly slow.

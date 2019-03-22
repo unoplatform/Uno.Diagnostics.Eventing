@@ -8,7 +8,6 @@ using System.Diagnostics;
 using Uno.Services.Contract.Diagnostics;
 using System.Reactive.Subjects;
 using Uno.Collections;
-using Uno;
 using Uno.Extensions;
 using Uno.Logging;
 using System.Reactive.Concurrency;

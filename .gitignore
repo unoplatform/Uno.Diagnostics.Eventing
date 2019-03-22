@@ -233,3 +233,4 @@ Resource.Designer.cs
 /build/tools/**
 !build/tools/packages.config
 /build/*.nupkg
+/src/nuget_override.props
