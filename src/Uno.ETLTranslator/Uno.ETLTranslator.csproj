@@ -6,6 +6,9 @@
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<NoWarn>$(NoWarn);1998</NoWarn>
 		<Description>The Uno Diagnostics for Eventing library.</Description>
+		<ApplicationIcon />
+		<OutputType>Exe</OutputType>
+		<StartupObject />
 	</PropertyGroup>
 	
 	<ItemGroup>
@@ -35,11 +38,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<None Include="App.config" />
-		<None Include="Content\umbrella.ui.wpaProfile" />
 		<None Include="_EventRegisterUsersGuide.docx" />
 		<None Include="_EventSourceUsersGuide.docx" />
-	</ItemGroup>
-	<ItemGroup>
-		<None Include="Content\umbrella.ui.regions.xml" />
 	</ItemGroup>
 </Project>

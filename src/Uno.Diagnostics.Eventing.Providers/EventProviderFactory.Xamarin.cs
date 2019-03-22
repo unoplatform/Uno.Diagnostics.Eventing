@@ -1,4 +1,4 @@
-﻿#if XAMARIN
+﻿#if __IOS__ || __MACOS || __ANDROID__ || NETSTANDARD2_0
 using Uno.Diagnostics.Eventing;
 using System;
 using System.Collections.Generic;

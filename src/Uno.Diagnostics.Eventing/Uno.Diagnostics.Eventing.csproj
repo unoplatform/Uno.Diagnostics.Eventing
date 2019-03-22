@@ -6,7 +6,7 @@
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<NoWarn>$(NoWarn);1998</NoWarn>
 		<Description>The Uno Diagnostics for Eventing library.</Description>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
