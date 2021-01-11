@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;net5.0</TargetFrameworks>
 		<AssemblyName>Uno.Diagnostics.Eventing</AssemblyName>
 		<RootNamespace>Uno.Diagnostics.Eventing</RootNamespace>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
@@ -10,7 +10,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Uno.MonoAnalyzers" />
+		<PackageReference Include="Uno.MonoAnalyzers" PrivateAssets="all" />
 		<PackageReference Include="Uno.Core" />
 	</ItemGroup>
 </Project>
