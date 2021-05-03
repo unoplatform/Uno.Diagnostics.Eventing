@@ -1,4 +1,4 @@
-﻿#if __IOS__ || __MACOS || __ANDROID__ || NETSTANDARD2_0
+﻿#if __IOS__ || __MACOS || __ANDROID__ || NETSTANDARD2_0 || NET5_0 || NET6_0_OR_GREATER
 using Uno.Diagnostics.Eventing;
 using System;
 using System.Collections.Generic;
