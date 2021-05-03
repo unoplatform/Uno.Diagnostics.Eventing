@@ -36,11 +36,7 @@ namespace Uno.Services.Diagnostics.Eventing
 		{
 			_basePath = basePath;
 
-#if !NETSTANDARD2_0
-			_writeScheduler = new EventLoopScheduler();
-#else
 			_writeScheduler = writeScheduler ?? throw new ArgumentNullException(nameof(writeScheduler));
-#endif
 
 			var fileName = "{0:yyyyMMdd-hhmmssfff}.trace".InvariantCultureFormat(DateTime.UtcNow);
 			var filePath = Path.Combine(basePath, "traces", fileName);
