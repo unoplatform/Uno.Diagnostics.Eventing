@@ -27,7 +27,8 @@ namespace Uno.Services.Diagnostics.Eventing
 					var q = from assembly in GetAllAssembies()
 							from type in GetTypes(assembly)
 							where type.Name == "TraceProvider"
-							let actualType = GetActualType(type)
+							let actualType = FindActualType(type)
+							where actualType != null
 							let idField = actualType.GetField("Id")
 							where idField != null
 							let eventFields = from field in actualType.GetFields()
@@ -83,9 +84,8 @@ namespace Uno.Services.Diagnostics.Eventing
 #endif
 		}
 
-		private static Type GetActualType(Type type)
+		private static Type FindActualType(Type type)
 		{
-			Console.WriteLine($"Getting actual type for {type}.");
 			try
 			{
 				return type.GetTypeInfo().IsGenericType ?
@@ -98,7 +98,9 @@ namespace Uno.Services.Diagnostics.Eventing
 			}
 			catch (Exception e)
 			{
-				throw new Exception($"Failed to generate manifest for {type}", e);
+				Console.WriteLine($"Failed to get actual type for {type}.");
+
+				return null;
 			}
 		}
 
