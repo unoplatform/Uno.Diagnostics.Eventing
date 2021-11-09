@@ -10,6 +10,7 @@ using Uno.Services.Diagnostics.Eventing;
 using System.Xml.Serialization;
 using System.Collections.Concurrent;
 using System.Threading;
+using System.Net.Http.Headers;
 
 namespace Uno.ETLTranslator
 {
@@ -194,10 +195,17 @@ PerfView {arguments}
 				}
 				else
 				{
-					Console.WriteLine($"Skipping {new Guid(eventData.Provider)}");
+					var provider = new Guid(eventData.Provider);
+					if(!_skippedProviders.Contains(provider))
+					{
+						_skippedProviders.Add(provider);
+						Console.WriteLine($"Skipping {provider}");
+					}
 				}
 			}
 		}
+
+		private static HashSet<Guid> _skippedProviders = new HashSet<Guid>();
 
 		private static int[] GetThreadIds()
 		{

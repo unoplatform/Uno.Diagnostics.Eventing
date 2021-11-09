@@ -1,11 +1,15 @@
 <Project ToolsVersion="15.0">
 
   <ItemGroup>
-    <PackageReference Update="Uno.MonoAnalyzers" Version="1.0.0-dev.4" IncludeAssets="all" PrivateAssets="All" />
-    <PackageReference Update="Uno.Core" Version="1.27.0-dev.72" />
-    <PackageReference Update="Uno.System.Reactive" Version="4.0.0-uno.415" />
-    <PackageReference Update="System.Reactive" Version="4.0.0" />
-    <PackageReference Include="DotNet.ReproducibleBuilds" Version="0.1.26" PrivateAssets="All"/>
+	<PackageReference Update="Uno.MonoAnalyzers" Version="1.0.0-dev.4" IncludeAssets="all" PrivateAssets="All" />
+	<PackageReference Update="Uno.Core.Extensions" Version="4.0.0-dev.5" />
+	<PackageReference Update="Uno.Core.Extensions.Collections" Version="4.0.0-dev.5" />
+	<PackageReference Update="Uno.Core.Extensions.Logging" Version="4.0.0-dev.5" />
+	<PackageReference Update="Uno.Core.Extensions.Threading" Version="4.0.0-dev.5" />
+	<PackageReference Update="Uno.Core.Extensions.Compatibility" Version="4.0.0-dev.5" />
+	<PackageReference Update="Uno.System.Reactive" Version="4.0.0-uno.415" />
+	<PackageReference Update="System.Reactive" Version="4.0.0" />
+	<PackageReference Include="DotNet.ReproducibleBuilds" Version="0.1.26" PrivateAssets="All"/>
   </ItemGroup>
   <Import Project="nuget_override.props" Condition="Exists('nuget_override.props')" />
 
@@ -14,22 +18,22 @@
         DependsOnTargets="BuiltProjectOutputGroup"
         Condition="'$(NugetOverrideVersion)'!=''">
 
-    <PropertyGroup>
-      <_OverrideTargetFramework>$(TargetFramework)</_OverrideTargetFramework>
-      <_TargetNugetFolder>$(USERPROFILE)\.nuget\packages\$(AssemblyName)\$(NugetOverrideVersion)\lib\$(_OverrideTargetFramework)</_TargetNugetFolder>
-      <_TargetNugetRefFolder>$(USERPROFILE)\.nuget\packages\$(AssemblyName)\$(NugetOverrideVersion)\ref\$(_OverrideTargetFramework)</_TargetNugetRefFolder>
-    </PropertyGroup>
-    <ItemGroup>
-      <_OutputFiles Include="$(TargetDir)\*.*" />
-      <_OutputRefFiles Include="$(TargetDir)\ref\*.*" />
-    </ItemGroup>
-    <MakeDir Directories="$(_TargetNugetFolder)" />
+	<PropertyGroup>
+	  <_OverrideTargetFramework>$(TargetFramework)</_OverrideTargetFramework>
+	  <_TargetNugetFolder>$(USERPROFILE)\.nuget\packages\$(AssemblyName)\$(NugetOverrideVersion)\lib\$(_OverrideTargetFramework)</_TargetNugetFolder>
+	  <_TargetNugetRefFolder>$(USERPROFILE)\.nuget\packages\$(AssemblyName)\$(NugetOverrideVersion)\ref\$(_OverrideTargetFramework)</_TargetNugetRefFolder>
+	</PropertyGroup>
+	<ItemGroup>
+	  <_OutputFiles Include="$(TargetDir)\*.*" />
+	  <_OutputRefFiles Include="$(TargetDir)\ref\*.*" />
+	</ItemGroup>
+	<MakeDir Directories="$(_TargetNugetFolder)" />
 
-    <Message Importance="high" Text="OVERRIDING NUGET PACKAGE CACHE: $(_TargetNugetFolder) and $(_TargetNugetRefFolder)" />
+	<Message Importance="high" Text="OVERRIDING NUGET PACKAGE CACHE: $(_TargetNugetFolder) and $(_TargetNugetRefFolder)" />
 
-    <Copy SourceFiles="@(_OutputFiles)"
+	<Copy SourceFiles="@(_OutputFiles)"
           DestinationFiles="@(_OutputFiles->'$(_TargetNugetFolder)\%(RecursiveDir)%(Filename)%(Extension)')" />
-    <Copy SourceFiles="@(_OutputRefFiles)"
+	<Copy SourceFiles="@(_OutputRefFiles)"
           DestinationFiles="@(_OutputRefFiles->'$(_TargetNugetRefFolder)\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>
 
