@@ -12,6 +12,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Uno.MonoAnalyzers" PrivateAssets="all" />
+		<PackageReference Include="Uno.Core.Extensions.Collections" />
+		<PackageReference Include="Uno.Core.Extensions.Logging" />
+		<PackageReference Include="Uno.Core.Extensions.Threading" />
+		<PackageReference Include="Uno.Core.Extensions.Compatibility" />
 	</ItemGroup>
 
 	<Choose>
