@@ -2,6 +2,7 @@
 using Uno.Services.Contract.Diagnostics;
 using Uno.Diagnostics.Eventing;
 using Uno;
+using Uno.Diagnostics.Eventing.Helpers;
 
 namespace Uno.Services.Diagnostics
 {
@@ -231,7 +232,7 @@ namespace Uno.Services.Diagnostics
 			{
 				Service.Increment(name);
 
-				return Actions.ToDisposable(() => Service.Decrement(name));
+				return new ActionDisposable(() => Service.Decrement(name));
 			}
 
 			return null;
