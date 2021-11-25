@@ -9,7 +9,6 @@
 	  <PackageReference Update="Uno.Core.Extensions.Compatibility" Version="4.0.1" />
 	  <PackageReference Update="Uno.System.Reactive" Version="4.0.0-uno.415" />
 	  <PackageReference Update="System.Reactive" Version="4.0.0" />
-	  <PackageReference Include="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All"/>
   </ItemGroup>
 
   <Import Project="nuget_override.props" Condition="Exists('nuget_override.props')" />
