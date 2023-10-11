@@ -9,8 +9,23 @@
 		<ApplicationIcon />
 		<OutputType>Exe</OutputType>
 		<StartupObject />
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>uno-etltranslator</ToolCommandName>
 	</PropertyGroup>
 	
+	<PropertyGroup>
+		<PackageId>Uno.ETLTranslator</PackageId>
+		<PackageDescription>A dotnet tool used to translate Uno Platform Event Traces to Windows ETL files</PackageDescription>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageLicenseExpression>apache-2.0</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/unoplatform/uno.diagnostics.eventing</PackageProjectUrl>
+		<Authors>unoplatform</Authors>
+		<Copyright>Copyright © Uno Platform</Copyright>
+		<Title>Uno Platform ETL Translator</Title>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventRegister">
 			<Version>1.1.28</Version>
