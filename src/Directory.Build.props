@@ -25,7 +25,7 @@
 	<ItemGroup>
 		<None Include="$(MSBuildThisFileDirectory)..\build\uno-logo.png" Pack="true" Visible="false" PackagePath="\"/>
 	</ItemGroup>
-	
+
 	<PropertyGroup>
 		<IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
 		<IsSampleProject>$(MSBuildProjectName.Contains('Sample'))</IsSampleProject>
