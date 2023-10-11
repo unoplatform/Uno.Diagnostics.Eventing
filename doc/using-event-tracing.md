@@ -218,7 +218,9 @@ Run the application to fill the trace file, which will give as many trace points
 1. Run your app first using a debugger and look for the `Available providers:` providers line in the debug log
 2. Download [PerfView](https://github.com/Microsoft/perfview/releases) from Microsoft.
 3. Run perfview in command line using the following arguments:
-    `perfview /onlyProviders=[content_of_the_providers_log_above** collect output01 -zip:false`
+    ```
+    perfview /onlyProviders=[content_of_the_providers_log_above]** collect output01 -zip:false
+    ```
 4. Run the application again
 5. Stop the Perfview trace
 6. Open the trace with `WPA` (see the section below)
@@ -270,9 +272,9 @@ To visualize a WPA trace file :
 
 1. Double click it to open, which should start WPA
    (alternatively you can type `start <file>.etl` from command line)
-2. In the Pofiles menu, click **browse**, then select the file named
-   [`Content\uno.ui.wpaProfile`](https://aka.platform.uno/event-tracing-profile) in the Uno.ETLTranslator project (Uno project).
-3. Pre-configured windows will open to profile somehow relevant information.
+1. Download the [`uno.ui.wpaProfile`](https://aka.platform.uno/event-tracing-profile) on your machine
+2. In the **Profiles** menu, then **Apply**, click **browse**, then select the file named `uno.ui.wpaProfile` that was downloaded previously.
+3. Pre-configured windows will open to analyze Uno Platform relevant information.
 
 In the analysis tab, individual the events are displayed. In the tabular view of the generic events window, most of the events will have payload information that detail the events such as the priority of an Background task schedule, or the URI of a Web request.
 
