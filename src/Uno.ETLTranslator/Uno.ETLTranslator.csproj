@@ -20,10 +20,7 @@
 	<PropertyGroup>
 		<PackageId>Uno.ETLTranslator</PackageId>
 		<PackageDescription>A dotnet tool used to translate Uno Platform Event Traces to Windows ETL files</PackageDescription>
-		<PackageLicenseExpression>apache-2.0</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/unoplatform/uno.diagnostics.eventing</PackageProjectUrl>
-		<Authors>unoplatform</Authors>
-		<Copyright>Copyright © Uno Platform</Copyright>
 		<Title>Uno Platform ETL Translator</Title>
 	</PropertyGroup>
 

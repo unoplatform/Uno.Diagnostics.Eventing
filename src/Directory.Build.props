@@ -20,6 +20,7 @@
 		<Description>A set of tools to generate performance traces to be visualized in Windows Performance Analyzer.</Description>
 		<Copyright>Copyright (C) 2015-2023 uno platform inc. - all rights reserved</Copyright>
 		<PackageIcon>uno-logo.png</PackageIcon>
+		<PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
 	</PropertyGroup>
 	
 	<ItemGroup>
