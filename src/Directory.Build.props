@@ -1,46 +1,50 @@
 <Project ToolsVersion="15.0">
 
-  <PropertyGroup>
-	<DebugType>portable</DebugType>
-	<DebugSymbols>True</DebugSymbols>
-	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-	<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+	<PropertyGroup>
+		<DebugType>portable</DebugType>
+		<DebugSymbols>True</DebugSymbols>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
 
-	<!-- Version management is now done through NuGet, this avoids issues related version mismatch -->
-	<Version>255.255.255.255</Version>
+		<!-- Version management is now done through NuGet, this avoids issues related version mismatch -->
+		<Version>255.255.255.255</Version>
 
-	<Product>$(AssemblyName) ($(TargetFramework))</Product>
-	<DefaultLanguage>en-US</DefaultLanguage>
-  </PropertyGroup>
+		<Product>$(AssemblyName) ($(TargetFramework))</Product>
+		<DefaultLanguage>en-US</DefaultLanguage>
+	</PropertyGroup>
 
-  <PropertyGroup>
-	<Authors>nventive</Authors>
-	<PackageProjectUrl>$(BUILD_REPOSITORY_URI)</PackageProjectUrl>
-	<PackageIconUrl>https://nv-assets.azurewebsites.net/logos/uno.png</PackageIconUrl>
-	<RepositoryUrl>$(BUILD_REPOSITORY_URI)</RepositoryUrl>
-	<Description>A set of tools to generate performance traces to be visualized in Windows Performance Analyzer.</Description>
-	<Copyright>Copyright (C) 2015-2021 nventive inc. - all rights reserved</Copyright>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Authors>uno platform</Authors>
+		<PackageProjectUrl>$(BUILD_REPOSITORY_URI)</PackageProjectUrl>
+		<RepositoryUrl>$(BUILD_REPOSITORY_URI)</RepositoryUrl>
+		<Description>A set of tools to generate performance traces to be visualized in Windows Performance Analyzer.</Description>
+		<Copyright>Copyright (C) 2015-2023 uno platform inc. - all rights reserved</Copyright>
+		<PackageIcon>uno-logo.png</PackageIcon>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)..\build\uno-logo.png" Pack="true" Visible="false" PackagePath="\"/>
+	</ItemGroup>
+	
+	<PropertyGroup>
+		<IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
+		<IsSampleProject>$(MSBuildProjectName.Contains('Sample'))</IsSampleProject>
+	</PropertyGroup>
 
-  <PropertyGroup>
-	<IsTestProject>$(MSBuildProjectName.Contains('Test'))</IsTestProject>
-	<IsSampleProject>$(MSBuildProjectName.Contains('Sample'))</IsSampleProject>
-  </PropertyGroup>
-
-  <Choose>
-	<When Condition="'$(Configuration)' != 'Debug' and '$(IsTestProject)' != 'true' and '$(SourceLinkEnabled)' != 'false' and '$(IsSampleProject)' != 'true'">
-	  <PropertyGroup>
-		<!-- Optional: Declare that the Repository URL can be published to NuSpec -->
-		<PublishRepositoryUrl>true</PublishRepositoryUrl>
-		<!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
-		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<!-- Optional: Include PDB in the built .nupkg -->
-		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-	  </PropertyGroup>
-	  <ItemGroup>
-		<PackageReference Update="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All"/>
-	  </ItemGroup>
-	</When>
-  </Choose>
+	<Choose>
+		<When Condition="'$(Configuration)' != 'Debug' and '$(IsTestProject)' != 'true' and '$(SourceLinkEnabled)' != 'false' and '$(IsSampleProject)' != 'true'">
+			<PropertyGroup>
+				<!-- Optional: Declare that the Repository URL can be published to NuSpec -->
+				<PublishRepositoryUrl>true</PublishRepositoryUrl>
+				<!-- Optional: Embed source files that are not tracked by the source control manager to the PDB -->
+				<EmbedUntrackedSources>true</EmbedUntrackedSources>
+				<!-- Optional: Include PDB in the built .nupkg -->
+				<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+			</PropertyGroup>
+			<ItemGroup>
+				<PackageReference Update="DotNet.ReproducibleBuilds" Version="1.1.1" PrivateAssets="All"/>
+			</ItemGroup>
+		</When>
+	</Choose>
 
 </Project>
