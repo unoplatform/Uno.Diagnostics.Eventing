@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 	<PropertyGroup>
-		<TargetFrameworks>net47</TargetFrameworks>
+		<TargetFrameworks>net7.0</TargetFrameworks>
 		<RootNamespace>Uno.ETLTranslator</RootNamespace>
 		<AssemblyName>Uno.ETLTranslator</AssemblyName>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
@@ -9,20 +9,27 @@
 		<ApplicationIcon />
 		<OutputType>Exe</OutputType>
 		<StartupObject />
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>uno-etltranslator</ToolCommandName>
+		<PackAsToolShimRuntimeIdentifiers Condition="'$(Configuration)'=='Release'">win-x64;win-x86;osx-x64;linux-x64</PackAsToolShimRuntimeIdentifiers>
+		<RollForward>Major</RollForward>
 	</PropertyGroup>
 	
+	<PropertyGroup>
+		<PackageId>Uno.ETLTranslator</PackageId>
+		<PackageDescription>A dotnet tool used to translate Uno Platform Event Traces to Windows ETL files</PackageDescription>
+		<PackageLicenseExpression>apache-2.0</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/unoplatform/uno.diagnostics.eventing</PackageProjectUrl>
+		<Authors>unoplatform</Authors>
+		<Copyright>Copyright © Uno Platform</Copyright>
+		<Title>Uno Platform ETL Translator</Title>
+	</PropertyGroup>
+
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventRegister">
-			<Version>1.1.28</Version>
-		</PackageReference>
-		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventSource">
-			<Version>1.1.28</Version>
-		</PackageReference>
-		<PackageReference Include="Microsoft.Diagnostics.Tracing.EventSource.Redist">
-			<Version>2.0.1</Version>
-		</PackageReference>
 		<PackageReference Include="Uno.Core">
-			<Version>1.27.0-dev.68</Version>
+			<Version>4.0.1</Version>
 		</PackageReference>
 	</ItemGroup>
 	<ItemGroup>

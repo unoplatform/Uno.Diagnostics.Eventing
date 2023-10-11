@@ -5,12 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Diagnostics.Tracing;
 using Uno.Services.Diagnostics.Eventing;
 using System.Xml.Serialization;
 using System.Collections.Concurrent;
 using System.Threading;
 using System.Net.Http.Headers;
+using System.Diagnostics.Tracing;
 
 namespace Uno.ETLTranslator
 {
