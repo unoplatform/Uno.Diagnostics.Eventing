@@ -246,13 +246,15 @@ The transform tool is a runtime replay tool because as the time of writing, the 
 
 2. Transform the trace files using the **Uno.ETLTranslator tool**, in the Uno solution.
 
+    > [!IMPORTANT] This section can only be run on a Windows machine
+
     1. Download [PerfView](http://www.microsoft.com/en-ca/download/details.aspx?id=28567) from Microsoft.
-    1. Set the first parameter of the executable to the .trace file you just pulled from the device
-    1. Run the converter
+    1. Run `dotnet tool install -f dotnet tool install -g Uno.ETLTranslator`
+    1. Run the converter `uno-etltranslator path\to\myfile.trace` file you just pulled from the app
     1. When asked, copy/paste and run the Perfview command line into another *Command Prompt* window
     1. Make converter continue and finish by pressing enter
     1. Press the stop collection button in PerfView
-    1. Select the no symbols option
+    1. Select the "Use empty symbols path"
     1. The output file is now called `PerfViewData.etl` in the `PerfView` folder
 
 Note that enabling the .NET linker/Trimmer removes the trace hints, making the manifest file empty. In such a case, generate a manifest file using a debug build with the linking disabled, in a simulator (to build quickly).
