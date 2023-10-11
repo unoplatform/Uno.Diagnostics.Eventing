@@ -1,6 +1,6 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras" ToolsVersion="15.0">
 	<PropertyGroup>
-		<TargetFrameworks>xamarinmac20;xamarinios10;MonoAndroid80;uap10.0.17763;net461;netstandard2.0;net5.0</TargetFrameworks>
+		<TargetFrameworks>xamarinmac20;xamarinios10;MonoAndroid13.0;uap10.0.17763;net461;netstandard2.0;net5.0</TargetFrameworks>
 		<Product>$(AssemblyName) ($(TargetFramework))</Product>
 		<NoWarn>$(NoWarn);1998</NoWarn>
 		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
